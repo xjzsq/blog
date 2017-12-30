@@ -163,20 +163,43 @@ at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
 转完之后，神tm成功了...
 无语了......
 
-#### 下面放上blog的编写格式吧:
-首先，在git bash里面输入
-</code></pre><p>hexo new “博客名”</p>
-<pre><code>然后打开source/_post文件夹下的.md
-</code></pre><hr>
-<p>title: 在新电脑继续个人博客的方法<br>date: 2017-12-13 11:46:33</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><pre><code>之后可以写成这样：
-</code></pre><hr>
-<p>title: 题目<br>date: 时间<br>tags: 标签名<br>categories: 分类</p>
-<h2 id="thumbnail-背景图地址"><a href="#thumbnail-背景图地址" class="headerlink" title="thumbnail: 背景图地址"></a>thumbnail: 背景图地址</h2><pre><code>正确举例：images/xxx.jpg
-
-写完以后，git bash输入以下命令
-</code></pre><p>hexo clean<br>hexo g<br>hexo d<br>```</p>
-
+## 更新12.31
+经过一晚上的研究，终于把hexo搞明白了！
+原因是终于解决必须加上/blog/绝对路径的才能正常显示图片的问题啦！
+从此以后显示标题图片直接images/xxx.xxx就可以啦！！！
+简单了许多！
+最重要的是，以后挂上域名也不用担心还会挂上/blog/导致找不到东西的情况啦！
+下面简单记录一下：
+最重要的东西：
+``` javascript
+&lt;%- config.root %&gt;
+</code></pre><p>这个是网站根目录网址。<br>经过调查发现，我用的mic主题的兼容性很差！<br>必须和作者的使用方式完全一样才能达到效果，不然就会出现各种问题…<br>首先是所有作者自己写的css和图片地址全部没有加根目录网址（就是上面的那行代码），<br>后果就是我挂到xjzsq.gitee.io/blog下，结果找图片和css都去了xjzsq.gitee.io/image(css)下去找，<br>明明在xjzsq.gitee.io/blog/image(css)下，肯定找不到啊！<br>之后改了一晚上，终于把所有该加根目录的都加上了根目录，累死我了！<br>不过终于完事了！Good And Nice!</p>
+<p>最近又弄了一下gitment评论系统，因为我是在码云上托管的，所以肯定不能用GitHub的issues来当评论系统了<br>要用gitee的issues，这就很坑了，弄了好久都没弄好…</p>
+<p>最近换了一个代码高亮的插件，代码感觉好多了！！！<br>在此放上链接：<a href="https://github.com/ele828/hexo-prism-plugin" target="_blank" rel="noopener">GitHub地址</a><br>用的是atom-dark风格，别的懒得试了…</p>
+<h4 id="下面放上blog的编写格式吧"><a href="#下面放上blog的编写格式吧" class="headerlink" title="下面放上blog的编写格式吧:"></a>下面放上blog的编写格式吧:</h4><p>首先，在git bash里面输入</p>
+<pre><code>hexo new &quot;博客名&quot;
+</code></pre><p>然后打开source/_post文件夹下的.md</p>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token hr punctuation">---</span> 
+title: 在新电脑继续个人博客的方法
+date: 2017-12-13 11:46:33
+<span class="token title important">tags:
+<span class="token punctuation">---</span></span>
+</code></pre>
+<p>之后可以写成这样：</p>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token hr punctuation">---</span>
+title: 题目
+date: 时间
+update: 更新时间
+tags: 标签名
+categories: 分类
+<span class="token title important">thumbnail: 背景图地址:images/xxx.jpg
+<span class="token punctuation">---</span></span>
+</code></pre>
+<p>写完以后，git bash输入以下命令</p>
+<pre><code>hexo clean
+hexo g
+hexo d
+</code></pre>
             </div>
 
             <!-- Post Comments -->
