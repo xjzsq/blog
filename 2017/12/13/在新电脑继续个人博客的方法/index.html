@@ -104,8 +104,9 @@
                 <h2 id="在新电脑继续个人博客的方法"><a href="#在新电脑继续个人博客的方法" class="headerlink" title="在新电脑继续个人博客的方法"></a>在新电脑继续个人博客的方法</h2><ol>
 <li>安装git和nodejs</li>
 <li>安装hexo</li>
-<li>安装hexo git插件<pre><code>cnpm install hexo-deployer-git --save
-</code></pre>竟然提示错误…<br>没有办法，只好在其他文件夹运行以上命令行，然后复制过来…<br>经过好长时间的复制之后…<br>终于成功了！！！<br>hexo deploy…<br>怎么报错了？！！！<br>```<br><em>*</em> Please tell me who you are.</li>
+<li>安装hexo git插件<pre class=" language-cpp"><code class="language-cpp">cnpm install hexo<span class="token operator">-</span>deployer<span class="token operator">-</span>git <span class="token operator">--</span>save
+</code></pre>
+竟然提示错误…<br>没有办法，只好在其他文件夹运行以上命令行，然后复制过来…<br>经过好长时间的复制之后…<br>终于成功了！！！<br>hexo deploy…<br>怎么报错了？！！！<br>```  cpp<br>Please tell me who you are.</li>
 </ol>
 <p>Run</p>
 <p>  git config –global user.email “you@example.com”<br>  git config –global user.name “Your Name”</p>
@@ -113,72 +114,53 @@
 <p>fatal: unable to auto-detect email address (got ‘Administrator@USER-20171207ND.(none)’)</p>
 <pre><code>参照这个[博客](http://blog.csdn.net/jzooo/article/details/46781805)，
 设置如下：
-</code></pre><p>git config –global user.name “你的用户名”<br>git config –global user.email “你的邮箱”</p>
-<pre><code>之后再次hexo d
-显示登录框了！！！
-输入用户名（邮箱）和密码，
-成功了的说！！！高兴啊！！！
+``` cpp
+git config --global user.name &quot;你的用户名&quot;
+git config --global user.email &quot;你的邮箱&quot;
+</code></pre><p>之后再次hexo d<br>显示登录框了！！！<br>输入用户名（邮箱）和密码，<br>成功了的说！！！高兴啊！！！</p>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p> 最近在另一台电脑上配置了一下，按照原方法配置以后，竟然出错了？！！！</p>
+<pre class=" language-cpp"><code class="language-cpp">bash<span class="token operator">:</span> <span class="token operator">/</span>dev<span class="token operator">/</span>tty<span class="token operator">:</span> No such device <span class="token operator">or</span> address
+error<span class="token operator">:</span> failed to execute prompt <span class="token function">script</span> <span class="token punctuation">(</span>exit code <span class="token number">1</span><span class="token punctuation">)</span>
+fatal<span class="token operator">:</span> could <span class="token operator">not</span> read Username <span class="token keyword">for</span> <span class="token string">'https://gitee.com'</span><span class="token operator">:</span> No error
+FATAL Something's wrong<span class="token punctuation">.</span> Maybe you can find the solution here<span class="token operator">:</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>hexo<span class="token punctuation">.</span>io<span class="token operator">/</span>docs<span class="token operator">/</span>troubleshooting<span class="token punctuation">.</span>html
+Error<span class="token operator">:</span> bash<span class="token operator">:</span> <span class="token operator">/</span>dev<span class="token operator">/</span>tty<span class="token operator">:</span> No such device <span class="token operator">or</span> address
+error<span class="token operator">:</span> failed to execute prompt <span class="token function">script</span> <span class="token punctuation">(</span>exit code <span class="token number">1</span><span class="token punctuation">)</span>
+fatal<span class="token operator">:</span> could <span class="token operator">not</span> read Username <span class="token keyword">for</span> <span class="token string">'https://gitee.com'</span><span class="token operator">:</span> No error
 
-## 更新
- 最近在另一台电脑上配置了一下，按照原方法配置以后，竟然出错了？！！！
-</code></pre><p>bash: /dev/tty: No such device or address<br>error: failed to execute prompt script (exit code 1)<br>fatal: could not read Username for ‘<a href="https://gitee.com" target="_blank" rel="noopener">https://gitee.com</a>‘: No error<br>FATAL Something’s wrong. Maybe you can find the solution here: <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">http://hexo.io/docs/troubleshooting.html</a><br>Error: bash: /dev/tty: No such device or address<br>error: failed to execute prompt script (exit code 1)<br>fatal: could not read Username for ‘<a href="https://gitee.com" target="_blank" rel="noopener">https://gitee.com</a>‘: No error</p>
-<pre><code>at ChildProcess.&lt;anonymous&gt; (H:\blog\node_modules\hexo-util\lib\spawn.js:37:17)
-at emitTwo (events.js:126:13)
-at ChildProcess.emit (events.js:214:7)
-at ChildProcess.cp.emit (H:\blog\node_modules\cross-spawn\lib\enoent.js:40:29)
-at maybeClose (internal/child_process.js:925:16)
-at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
-</code></pre><pre><code>重新建一个...还是不行...好不爽啊...
-最后终于通过修改_config.yml文件解决了...
-需要将repo修改如下：
-</code></pre><p>repo: <a href="https://你的用户名:你的密码@gitee.com/用户名/blog.git" target="_blank" rel="noopener">https://你的用户名:你的密码@gitee.com/用户名/blog.git</a></p>
-<pre><code>最后那个就是你在gitee上的库。
-
-## 更新12-30
-最近突然发现了
-安装hexo git插件
-</code></pre><p>cnpm install hexo-deployer-git –save</p>
-<pre><code>出错的原因：文件系统格式错误！
-大概会提示下面这些：
-</code></pre><p>× Install fail! Error: EISDIR: illegal operation on a directory, symlink ‘Z:\blog\node_modules_hexo-deployer-git@0.3.1@hexo-deployer-git’ -&gt; ‘Z:\blog\node_modules\hexo-deployer-git’<br>Error: EISDIR: illegal operation on a directory, symlink ‘Z:\blog\node_modules_hexo-deployer-git@0.3.1@hexo-deployer-git’ -&gt; ‘Z:\blog\node_modules\hexo-deployer-git’<br>npminstall version: 3.2.1<br>npminstall args: D:\Program Files\nodejs\node.exe C:\Users\zhanshengbo\AppData\Roaming\npm\node_modules\cnpm\node_modules\npminstall\bin\install.js –china –userconfig=C:\Users\zhanshengbo.cnpmrc –disturl=<a href="https://npm.taobao.org/mirrors/node" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node</a> –registry=<a href="http://registry.npm.taobao.org" target="_blank" rel="noopener">http://registry.npm.taobao.org</a> hexo-deployer-git –save</p>
-<pre><code>不科学啊！！！
-是不是因为我的博客文件在U盘上所以不行？
-在电脑上创建一个试试？
-家里的电脑上没问题啊...
-为什么学校机房电脑有问题？
-是不是权限问题？
-管理员身份运行试试？
-无效...
-换个地方试试？
-我把魔爪伸向了C盘，结果竟然成功了？！！！
-什么情况？！！！
-在我百思不得其解的情况下，突然看到C的文件系统格式是NTFS，而其他盘的都是FAT32......
-网上查了一下区别，原来NTFS更胜一筹！
-然而学校的电脑原来安装的是winxp，所以默认的格式都是FAT32，
-而win7是为了我学奥赛专门安装的（再次感谢微机老师！），所以只把C盘转成了NTFS。
-网上找了一下发现了dos命令：
-</code></pre><p>convert d:/fs:ntfs</p>
-<pre><code>上面的命令可以将D盘转成NTFS格式，
-可以将d改成其他的盘符。
-转完之后，神tm成功了...
-无语了......
-
-## 更新12.31
-经过一晚上的研究，终于把hexo搞明白了！
-原因是终于解决必须加上/blog/绝对路径的才能正常显示图片的问题啦！
-从此以后显示标题图片直接images/xxx.xxx就可以啦！！！
-简单了许多！
-最重要的是，以后挂上域名也不用担心还会挂上/blog/导致找不到东西的情况啦！
-下面简单记录一下：
-最重要的东西：
-``` javascript
-&lt;%- config.root %&gt;
-</code></pre><p>这个是网站根目录网址。<br>经过调查发现，我用的mic主题的兼容性很差！<br>必须和作者的使用方式完全一样才能达到效果，不然就会出现各种问题…<br>首先是所有作者自己写的css和图片地址全部没有加根目录网址（就是上面的那行代码），<br>后果就是我挂到xjzsq.gitee.io/blog下，结果找图片和css都去了xjzsq.gitee.io/image(css)下去找，<br>明明在xjzsq.gitee.io/blog/image(css)下，肯定找不到啊！<br>之后改了一晚上，终于把所有该加根目录的都加上了根目录，累死我了！<br>不过终于完事了！Good And Nice!</p>
+    at ChildProcess<span class="token punctuation">.</span><span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>H<span class="token operator">:</span>\blog\node_modules\hexo<span class="token operator">-</span>util\lib\spawn<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">37</span><span class="token operator">:</span><span class="token number">17</span><span class="token punctuation">)</span>
+    at <span class="token function">emitTwo</span> <span class="token punctuation">(</span>events<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">126</span><span class="token operator">:</span><span class="token number">13</span><span class="token punctuation">)</span>
+    at ChildProcess<span class="token punctuation">.</span><span class="token function">emit</span> <span class="token punctuation">(</span>events<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">214</span><span class="token operator">:</span><span class="token number">7</span><span class="token punctuation">)</span>
+    at ChildProcess<span class="token punctuation">.</span>cp<span class="token punctuation">.</span><span class="token function">emit</span> <span class="token punctuation">(</span>H<span class="token operator">:</span>\blog\node_modules\cross<span class="token operator">-</span>spawn\lib\enoent<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">40</span><span class="token operator">:</span><span class="token number">29</span><span class="token punctuation">)</span>
+    at <span class="token function">maybeClose</span> <span class="token punctuation">(</span>internal<span class="token operator">/</span>child_process<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">925</span><span class="token operator">:</span><span class="token number">16</span><span class="token punctuation">)</span>
+    at Process<span class="token punctuation">.</span>ChildProcess<span class="token punctuation">.</span>_handle<span class="token punctuation">.</span><span class="token function">onexit</span> <span class="token punctuation">(</span>internal<span class="token operator">/</span>child_process<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">209</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<p>重新建一个…还是不行…好不爽啊…<br>最后终于通过修改_config.yml文件解决了…<br>需要将repo修改如下：</p>
+<pre class=" language-cpp"><code class="language-cpp">repo<span class="token operator">:</span> https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>你的用户名<span class="token operator">:</span>你的密码@gitee<span class="token punctuation">.</span>com<span class="token operator">/</span>用户名<span class="token operator">/</span>blog<span class="token punctuation">.</span>git
+</code></pre>
+<p>最后那个就是你在gitee上的库。</p>
+<h2 id="更新12-30"><a href="#更新12-30" class="headerlink" title="更新12-30"></a>更新12-30</h2><p>最近突然发现了<br>安装hexo git插件</p>
+<pre class=" language-cpp"><code class="language-cpp">cnpm install hexo<span class="token operator">-</span>deployer<span class="token operator">-</span>git <span class="token operator">--</span>save
+</code></pre>
+<p>出错的原因：文件系统格式错误！<br>大概会提示下面这些：</p>
+<pre class=" language-cpp"><code class="language-cpp">× Install fail<span class="token operator">!</span> Error<span class="token operator">:</span> EISDIR<span class="token operator">:</span> illegal operation on a directory<span class="token punctuation">,</span> symlink <span class="token string">'Z:\blog\node_modules\_hexo-deployer-git@0.3.1@hexo-deployer-git'</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token string">'Z:\blog\node_modules\hexo-deployer-git'</span>
+Error<span class="token operator">:</span> EISDIR<span class="token operator">:</span> illegal operation on a directory<span class="token punctuation">,</span> symlink <span class="token string">'Z:\blog\node_modules\_hexo-deployer-git@0.3.1@hexo-deployer-git'</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token string">'Z:\blog\node_modules\hexo-deployer-git'</span>
+npminstall version<span class="token operator">:</span> <span class="token number">3.2</span><span class="token punctuation">.</span><span class="token number">1</span>
+npminstall args<span class="token operator">:</span> D<span class="token operator">:</span>\Program Files\nodejs\node<span class="token punctuation">.</span>exe C<span class="token operator">:</span>\Users\zhanshengbo\AppData\Roaming\npm\node_modules\cnpm\node_modules\npminstall\bin\install<span class="token punctuation">.</span>js <span class="token operator">--</span>china <span class="token operator">--</span>userconfig<span class="token operator">=</span>C<span class="token operator">:</span>\Users\zhanshengbo\<span class="token punctuation">.</span>cnpmrc <span class="token operator">--</span>disturl<span class="token operator">=</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token operator">/</span>node <span class="token operator">--</span>registry<span class="token operator">=</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>registry<span class="token punctuation">.</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org hexo<span class="token operator">-</span>deployer<span class="token operator">-</span>git <span class="token operator">--</span>save
+</code></pre>
+<p>不科学啊！！！<br>是不是因为我的博客文件在U盘上所以不行？<br>在电脑上创建一个试试？<br>家里的电脑上没问题啊…<br>为什么学校机房电脑有问题？<br>是不是权限问题？<br>管理员身份运行试试？<br>无效…<br>换个地方试试？<br>我把魔爪伸向了C盘，结果竟然成功了？！！！<br>什么情况？！！！<br>在我百思不得其解的情况下，突然看到C的文件系统格式是NTFS，而其他盘的都是FAT32……<br>网上查了一下区别，原来NTFS更胜一筹！<br>然而学校的电脑原来安装的是winxp，所以默认的格式都是FAT32，<br>而win7是为了我学奥赛专门安装的（再次感谢微机老师！），所以只把C盘转成了NTFS。<br>网上找了一下发现了dos命令：</p>
+<pre class=" language-cpp"><code class="language-cpp">convert d<span class="token operator">:</span><span class="token operator">/</span>fs<span class="token operator">:</span>ntfs
+</code></pre>
+<p>上面的命令可以将D盘转成NTFS格式，<br>可以将d改成其他的盘符。<br>转完之后，神tm成功了…<br>无语了……</p>
+<h2 id="更新12-31"><a href="#更新12-31" class="headerlink" title="更新12.31"></a>更新12.31</h2><p>经过一晚上的研究，终于把hexo搞明白了！<br>原因是终于解决必须加上/blog/绝对路径的才能正常显示图片的问题啦！<br>从此以后显示标题图片直接images/xxx.xxx就可以啦！！！<br>简单了许多！<br>最重要的是，以后挂上域名也不用担心还会挂上/blog/导致找不到东西的情况啦！<br>下面简单记录一下：<br>最重要的东西：</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> config<span class="token punctuation">.</span>root <span class="token operator">%</span><span class="token operator">></span>
+</code></pre>
+<p>这个是网站根目录网址。<br>经过调查发现，我用的mic主题的兼容性很差！<br>必须和作者的使用方式完全一样才能达到效果，不然就会出现各种问题…<br>首先是所有作者自己写的css和图片地址全部没有加根目录网址（就是上面的那行代码），<br>后果就是我挂到xjzsq.gitee.io/blog下，结果找图片和css都去了xjzsq.gitee.io/image(css)下去找，<br>明明在xjzsq.gitee.io/blog/image(css)下，肯定找不到啊！<br>之后改了一晚上，终于把所有该加根目录的都加上了根目录，累死我了！<br>不过终于完事了！Good And Nice!</p>
 <p>最近又弄了一下gitment评论系统，因为我是在码云上托管的，所以肯定不能用GitHub的issues来当评论系统了<br>要用gitee的issues，这就很坑了，弄了好久都没弄好…</p>
 <p>最近换了一个代码高亮的插件，代码感觉好多了！！！<br>在此放上链接：<a href="https://github.com/ele828/hexo-prism-plugin" target="_blank" rel="noopener">GitHub地址</a><br>用的是atom-dark风格，别的懒得试了…</p>
 <h4 id="下面放上blog的编写格式吧"><a href="#下面放上blog的编写格式吧" class="headerlink" title="下面放上blog的编写格式吧:"></a>下面放上blog的编写格式吧:</h4><p>首先，在git bash里面输入</p>
-<pre><code>hexo new &quot;博客名&quot;
-</code></pre><p>然后打开source/_post文件夹下的.md</p>
+<pre class=" language-cpp"><code class="language-cpp">hexo <span class="token keyword">new</span> <span class="token string">"博客名"</span>
+</code></pre>
+<p>然后打开source/_post文件夹下的.md</p>
 <pre class=" language-markdown"><code class="language-markdown"><span class="token hr punctuation">---</span> 
 title: 在新电脑继续个人博客的方法
 date: 2017-12-13 11:46:33
@@ -196,10 +178,11 @@ categories: 分类
 <span class="token punctuation">---</span></span>
 </code></pre>
 <p>写完以后，git bash输入以下命令</p>
-<pre><code>hexo clean
+<pre class=" language-cpp"><code class="language-cpp">hexo clean
 hexo g
 hexo d
 </code></pre>
+
             </div>
 
             <!-- Post Comments -->
