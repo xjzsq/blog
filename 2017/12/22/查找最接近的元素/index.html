@@ -27,7 +27,7 @@
     <script src="/blog/js/util.js"></script>
     <script src="/blog/js/main.js"></script>
 	
-</head>
+<link rel="stylesheet" href="/blog/css/prism-atom-dark.css" type="text/css"></head>
     
 		
 <!-- Layouts -->
@@ -102,59 +102,59 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <h1 id="查找最接近的元素"><a href="#查找最接近的元素" class="headerlink" title="查找最接近的元素"></a>查找最接近的元素</h1><h3 id="题目来源："><a href="#题目来源：" class="headerlink" title="题目来源："></a>题目来源：</h3><p>openjudge<br>NOI(题库正在建设中，做题纪录有可能会被删除，请注意) / 1.11编程基础之二分查找第一题<br>提交链接：<a href="http://noi.openjudge.cn/ch0111/01/" target="_blank" rel="noopener">openjudge</a></p>
-<h3 id="90分代码"><a href="#90分代码" class="headerlink" title="90分代码"></a>90分代码</h3><pre><code class="cpp">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt; 
-#include&lt;queue&gt;
-using namespace std;
-int n,s[100002],m,x;
-inline int find(int xx,int l,int r)
-{
-    if(xx&lt;s[l])return l-1;
-    if(l&lt;r)
-    {
-        int mid = (l+r)&gt;&gt;1;
-        if(xx==s[mid])
-        return mid;
-        if(xx&lt;s[mid])return find(xx,l,mid);
-        return find(xx,mid+1,r);
-    }
-    return r-1;
-}
-inline int search(int xx)
-{
-    if(xx&lt;=s[1])return s[1];
-    if(xx&gt;=s[n])return s[n];
-    int tmp = find(xx,1,n);
-    //find用来寻找等于x或者比x小的第一个值
-    if(xx==s[tmp])return s[tmp];
-    if(xx-s[tmp]&lt;=s[tmp+1]-xx&amp;&amp;tmp!=0)
-        return s[tmp];
-    return s[tmp+1];
-}
-int main()
-{
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=1;i&lt;=n;i++)
-    {
-        scanf(&quot;%d&quot;,&amp;s[i]);
-        if(s[i]==s[i-1])i--,n--;
-    }
-    s[0]=-1;
-    scanf(&quot;%d&quot;,&amp;m);
-    while(m--)
-    {
-        scanf(&quot;%d&quot;,&amp;x);
-        printf(&quot;%d\n&quot;,search(x));
-    }
-    return 0;
-}
+<h3 id="90分代码"><a href="#90分代码" class="headerlink" title="90分代码"></a>90分代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span> </span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;queue></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>s<span class="token punctuation">[</span><span class="token number">100002</span><span class="token punctuation">]</span><span class="token punctuation">,</span>m<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
+<span class="token keyword">inline</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> xx<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">&lt;</span>s<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span> l<span class="token number">-1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">==</span>s<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">&lt;</span>s<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token function">find</span><span class="token punctuation">(</span>xx<span class="token punctuation">,</span>l<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">find</span><span class="token punctuation">(</span>xx<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> r<span class="token number">-1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span> xx<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">&lt;=</span>s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">>=</span>s<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span> s<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> tmp <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>xx<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//find用来寻找等于x或者比x小的第一个值</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">==</span>s<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span> s<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>xx<span class="token operator">-</span>s<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span><span class="token operator">&lt;=</span>s<span class="token punctuation">[</span>tmp<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>xx<span class="token operator">&amp;&amp;</span>tmp<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">[</span>tmp<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>s<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>i<span class="token operator">--</span><span class="token punctuation">,</span>n<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span><span class="token function">search</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-/*
+<span class="token comment" spellcheck="true">/*
 10
 1 1 2 2 3 7 7 7 10 10 10000
 4出现问题 
-*/
+*/</span>
 </code></pre>
 <h3 id="被坑历程"><a href="#被坑历程" class="headerlink" title="被坑历程"></a>被坑历程</h3><p>开始把二分写炸了，2分<br>后来一直是3分<br>之后仔细看了一下，发现少写了一个return，改好以后9分，之后一直GG<br>已经做了两节课了…<br>感觉自己太菜了！！！</p>
 
@@ -166,9 +166,9 @@ int main()
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id:  location.href,// 可选。默认为 location.href
-  owner: xjzsq ,
-  repo: https://github.com/xjzsq/blog.git,
+  id:  '',// 可选。默认为 location.href
+  owner: 'xjzsq' ,
+  repo: 'https://github.com/xjzsq/blog.git',
   oauth: {
     client_id: 'cc54c6f59a22216433c7',
     client_secret: '08197d319d07c4c4736ffa429ca402c6cf996fcb',

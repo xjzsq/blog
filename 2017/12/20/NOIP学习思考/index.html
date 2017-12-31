@@ -27,7 +27,7 @@
     <script src="/blog/js/util.js"></script>
     <script src="/blog/js/main.js"></script>
 	
-</head>
+<link rel="stylesheet" href="/blog/css/prism-atom-dark.css" type="text/css"></head>
     
 		
 <!-- Layouts -->
@@ -103,10 +103,10 @@
             <div class="typo" style="padding: 3rem;">
                 <h1 id="NOIP学习思考"><a href="#NOIP学习思考" class="headerlink" title="NOIP学习思考"></a>NOIP学习思考</h1><h5 id="1-当前一些基础知识已经掌握，已理解其实现原理以及基本思路，但代码实现仍不会写或者写起来不熟练。"><a href="#1-当前一些基础知识已经掌握，已理解其实现原理以及基本思路，但代码实现仍不会写或者写起来不熟练。" class="headerlink" title="1. 当前一些基础知识已经掌握，已理解其实现原理以及基本思路，但代码实现仍不会写或者写起来不熟练。"></a>1. 当前一些基础知识已经掌握，已理解其实现原理以及基本思路，但代码实现仍不会写或者写起来不熟练。</h5><p>从最短路可以看出，虽然已经练了很多遍最短路，但是敲一遍最短路依然要花8min左右的时间，主要原因有三：<br>① 对于最短路依然不熟悉，没有烂熟于心<br>② 敲键盘敲错的概率较高，需要反复backspace，严重限制了速度<br>③ 受到一些其他因素的影响</p>
 <h5 id="2-提高代码输入速度很重要"><a href="#2-提高代码输入速度很重要" class="headerlink" title="2.提高代码输入速度很重要"></a>2.提高代码输入速度很重要</h5><p>目前遇到的瓶颈是手速虽然不满，但经常打错，需要反复修改，比如</p>
-<pre><code class="cpp">#include&lt;cstdio&gt;
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
 </code></pre>
 <p>打快了就会打成：</p>
-<pre><code class="cpp">#icnldue&lt;cstdio&gt;
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#icnldue&lt;cstdio></span>
 </code></pre>
 <p>还有int打快了就会敲成itn，edge敲成edeg，另外打快了容易加上其他字符，比如敲”;”会敲成” ;’ “，敲i容易敲成io,主要原因有二：<br>① 对键盘布局已有一定了解，但是了解依然不深。<br>比如按backspace键容易误碰到insert键等，导致打错字符。<br>② 左右手不协调<br>int中的i和n，均属于右手，但是t属于左手，左手可能比右手快，就导致了itn的形成。</p>
 <h5 id="3-OJ题目AC"><a href="#3-OJ题目AC" class="headerlink" title="3.OJ题目AC"></a>3.OJ题目AC</h5><p>应该多从openjudge的noi题库中找题，然后到洛谷上去做（众：……），并且洛谷AC后再捎带在openjudge上提交一下……总之就这样吧</p>
@@ -119,9 +119,9 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id:  location.href,// 可选。默认为 location.href
-  owner: xjzsq ,
-  repo: https://github.com/xjzsq/blog.git,
+  id:  '',// 可选。默认为 location.href
+  owner: 'xjzsq' ,
+  repo: 'https://github.com/xjzsq/blog.git',
   oauth: {
     client_id: 'cc54c6f59a22216433c7',
     client_secret: '08197d319d07c4c4736ffa429ca402c6cf996fcb',
