@@ -27,7 +27,7 @@
     <script src="/blog/js/util.js"></script>
     <script src="/blog/js/main.js"></script>
 	
-<link rel="stylesheet" href="/blog/css/prism-atom-dark.css" type="text/css"></head>
+</head>
     
 		
 <!-- Layouts -->
@@ -102,41 +102,41 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <h1 id="二分法求函数的零点"><a href="#二分法求函数的零点" class="headerlink" title="二分法求函数的零点"></a>二分法求函数的零点</h1><h5 id="题目来源："><a href="#题目来源：" class="headerlink" title="题目来源："></a>题目来源：</h5><p>openjudge<br>NOI(题库正在建设中，做题纪录有可能会被删除，请注意) / 1.11编程基础之二分查找 第二题<br>提交链接：<a href="http://noi.openjudge.cn/ch0111/02/" target="_blank" rel="noopener">openjudge</a></p>
-<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">double</span> l<span class="token operator">=</span><span class="token number">1.5</span><span class="token punctuation">,</span>r<span class="token operator">=</span><span class="token number">2.4</span><span class="token punctuation">;</span>
-<span class="token keyword">inline</span> <span class="token keyword">int</span> <span class="token function">ok</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">double</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-    ans<span class="token operator">=</span>x<span class="token punctuation">;</span>
-    ans<span class="token operator">-</span><span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">;</span>
-    ans<span class="token operator">*</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
-    ans<span class="token operator">+</span><span class="token operator">=</span><span class="token number">85</span><span class="token punctuation">;</span>
-    ans<span class="token operator">*</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
-    ans<span class="token operator">-</span><span class="token operator">=</span><span class="token number">225</span><span class="token punctuation">;</span>
-    ans<span class="token operator">*</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
-    ans<span class="token operator">+</span><span class="token operator">=</span><span class="token number">274</span><span class="token punctuation">;</span>
-    ans<span class="token operator">*</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
-    ans<span class="token operator">-</span><span class="token operator">=</span><span class="token number">121</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0.000001</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">double</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2.0</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ok</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            l<span class="token operator">=</span>mid<span class="token punctuation">;</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span> 
-        <span class="token punctuation">}</span>
-        r<span class="token operator">=</span>mid<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.6lf"</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<h5 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h5><pre><code class="cpp">#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+double l=1.5,r=2.4;
+inline int ok(double x)
+{
+    double ans=0;
+    ans=x;
+    ans-=15;
+    ans*=x;
+    ans+=85;
+    ans*=x;
+    ans-=225;
+    ans*=x;
+    ans+=274;
+    ans*=x;
+    ans-=121;
+    if(ans&gt;0)return 1;
+    return 0;
+}
+int main()
+{
+    while((r-l)&gt;0.000001)
+    {
+        double mid=(l+r)/2.0;
+        if(ok(mid))
+        {
+            l=mid;
+            continue; 
+        }
+        r=mid;
+    }
+    printf(&quot;%.6lf&quot;,r);
+}
 </code></pre>
 <h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>这个题目基本没有什么坑点，唯一坑点就是对于精度的把握和四舍五入。<br>精度方面他让你到小数点后x位，while里面写(r-l)&lt;10^(-x)就可以了，写少了不行，但是写多了不影响。<br>关于四舍五入，直接输出r就可以了，一般r截掉后面几位之后就是四舍五入的结果（现在想想好像不太对…）</p>
 
@@ -153,7 +153,7 @@ var gitment = new Gitment({
   repo: 'https://github.com/xjzsq/blog.git',
   oauth: {
     client_id: 'cc54c6f59a22216433c7',
-    client_secret: 'effee61e5a44274146329962ed9ad380aa90c87f',
+    client_secret: '08197d319d07c4c4736ffa429ca402c6cf996fcb',
   },
 })
 gitment.render('container')
