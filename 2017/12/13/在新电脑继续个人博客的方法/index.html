@@ -106,18 +106,19 @@
 <li>安装hexo</li>
 <li>安装hexo git插件<pre class=" language-cpp"><code class="language-cpp">cnpm install hexo<span class="token operator">-</span>deployer<span class="token operator">-</span>git <span class="token operator">--</span>save
 </code></pre>
-竟然提示错误…<br>没有办法，只好在其他文件夹运行以上命令行，然后复制过来…<br>经过好长时间的复制之后…<br>终于成功了！！！<br>hexo deploy…<br>怎么报错了？！！！<br>```  cpp<br>Please tell me who you are.</li>
+竟然提示错误…<br>没有办法，只好在其他文件夹运行以上命令行，然后复制过来…<br>经过好长时间的复制之后…<br>终于成功了！！！<br>hexo deploy…<br>怎么报错了？！！！<pre class=" language-cpp"><code class="language-cpp">Please tell me who you are<span class="token punctuation">.</span>
+Run
+git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>email <span class="token string">"you@example.com"</span>
+git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>name <span class="token string">"Your Name"</span>
+to set your account's <span class="token keyword">default</span> identity<span class="token punctuation">.</span>
+Omit <span class="token operator">--</span>global to set the identity only in <span class="token keyword">this</span> repository<span class="token punctuation">.</span>
+fatal<span class="token operator">:</span> unable to <span class="token keyword">auto</span><span class="token operator">-</span>detect email <span class="token function">address</span> <span class="token punctuation">(</span>got <span class="token string">'Administrator@USER-20171207ND.(none)'</span><span class="token punctuation">)</span>
+</code></pre>
+参照这个<a href="http://blog.csdn.net/jzooo/article/details/46781805" target="_blank" rel="noopener">博客</a>，<br>设置如下：<pre class=" language-cpp"><code class="language-cpp">git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>name <span class="token string">"你的用户名"</span>
+git config <span class="token operator">--</span>global user<span class="token punctuation">.</span>email <span class="token string">"你的邮箱"</span>
+</code></pre>
+之后再次hexo d<br>显示登录框了！！！<br>输入用户名（邮箱）和密码，<br>成功了的说！！！高兴啊！！！</li>
 </ol>
-<p>Run</p>
-<p>  git config –global user.email “you@example.com”<br>  git config –global user.name “Your Name”</p>
-<p>to set your account’s default identity.<br>Omit –global to set the identity only in this repository.</p>
-<p>fatal: unable to auto-detect email address (got ‘Administrator@USER-20171207ND.(none)’)</p>
-<pre><code>参照这个[博客](http://blog.csdn.net/jzooo/article/details/46781805)，
-设置如下：
-``` cpp
-git config --global user.name &quot;你的用户名&quot;
-git config --global user.email &quot;你的邮箱&quot;
-</code></pre><p>之后再次hexo d<br>显示登录框了！！！<br>输入用户名（邮箱）和密码，<br>成功了的说！！！高兴啊！！！</p>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p> 最近在另一台电脑上配置了一下，按照原方法配置以后，竟然出错了？！！！</p>
 <pre class=" language-cpp"><code class="language-cpp">bash<span class="token operator">:</span> <span class="token operator">/</span>dev<span class="token operator">/</span>tty<span class="token operator">:</span> No such device <span class="token operator">or</span> address
 error<span class="token operator">:</span> failed to execute prompt <span class="token function">script</span> <span class="token punctuation">(</span>exit code <span class="token number">1</span><span class="token punctuation">)</span>
@@ -193,10 +194,10 @@ hexo d
 var gitment = new Gitment({
   id:  location.href,// 可选。默认为 location.href
   owner: 'xjzsq' ,
-  repo: 'https://gitee.com/xjzsq/blog.git',
+  repo: 'https://github.com/xjzsq/blog.git',
   oauth: {
-    client_id: '1287327b9f13a208a5777a9080ce58a202e6b653f24694d9d906a06a4214fd1b',
-    client_secret: '6feb6d886ebb2f14472227b5eb412483ced64f3b3d84cb1ec033b0b423cee2cf',
+    client_id: '6eab6735b71dad251c90',
+    client_secret: 'b6864428f1b4d99daac2b33f8d47201a9557c591',
   },
 })
 gitment.render('container')
